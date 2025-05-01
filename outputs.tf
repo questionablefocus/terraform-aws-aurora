@@ -25,7 +25,12 @@ output "master_username" {
 
 output "master_user_secret_kms_key_id" {
   description = "The KMS key ID used to encrypt the master user password"
-  value       = aws_kms_key.main.key_id
+  value       = aws_rds_cluster.main.master_user_secret[0].kms_key_id
+}
+
+output "master_user_secret_secret_arn" {
+  description = "The ARN of the secret containing the master user password"
+  value       = aws_rds_cluster.main.master_user_secret[0].secret_arn
 }
 
 output "cluster_arn" {

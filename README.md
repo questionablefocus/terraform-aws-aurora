@@ -17,7 +17,8 @@ This Terraform module creates an AWS Aurora database cluster with support for bo
 
 ```hcl
 module "aurora" {
-  source = "./modules/aws_aurora"
+  source  = "questionablefocus/aurora/aws"
+  version = "1.1.0"
 
   name               = "my-database"
   engine             = "aurora-postgresql"
